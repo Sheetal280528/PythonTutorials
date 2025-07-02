@@ -1,4 +1,8 @@
 I am writing this file which will overwrite the existing datanow I am trying to append the data thru mode a
  bcz my previous append data was appeneded in existing line
 
+<<<<<<< HEAD
  I am trying to learn branch concept here(button here main)
+=======
+ I am trying to learn branch concept here (dropdown button-feature1)
+>>>>>>> feature1
