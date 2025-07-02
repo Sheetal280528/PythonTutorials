@@ -1,0 +1,60 @@
+class Student():
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+    def cal_avg(self):
+        sum = 0
+        for el in self.marks:
+            sum = sum + el
+        print (self.name, "has" " avg: ", sum/3)
+    
+s1 = Student("Sheetal", [45, 90, 45])
+s1.cal_avg()
+s1.marks = (100, 50, 45)
+s1.cal_avg()
+
+class Car:
+    colour = "black"
+    wheel  = 4
+    def __init__(self, name, prize):
+        self.name = name
+        self.prize = prize
+    @staticmethod
+    def start():
+        print("car started: ")
+    @staticmethod
+    def stop():
+        print("car stopped")
+class ToyotaCar(Car):
+    def __init__(self, location):
+        self.location = location
+        print("location is ", self.location)
+    def cal_loc(self, new_location):
+        self.new_loc = new_location
+        print("new: ", self.new_loc)
+class fortuner(ToyotaCar):
+    def __init__(self, type, location):
+        self.type = type
+        super().__init__(location) #using super() we can access the variable of our parent class
+ 
+car1 = fortuner("petrol", "Pune")
+print(car1.ToyotaCar.location)
+car2 = ToyotaCar("Chennai")
+print(car2.location)
+print(car2.cal_loc("Mumbai"))
+print(car1.colour)
+print(car1.wheel)
+print(car1.location)
+print(car1.start())
+print(car1.cal_loc("banglore"))
+
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("Error: File not found.")
+else:
+    print("File read successfully!")
+finally:
+    print("Execution complete.")

@@ -1,0 +1,85 @@
+#delete the object or its attributes
+class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age  = age
+        print("hello world ", self.name, self.age)
+
+s1 = Student("Sheetal", 35)
+print(s1.name)
+s2 = Student("Ayansh", 5)
+print(s2.name)
+del (s2.name)
+print(s2.age)
+
+#if we want to create any attribute or method as private (private means which cannot be used outside of the class)
+class Student:
+    def __init__(self, name, grade):
+        self.name = name
+        self.__grade = grade
+        print("internal ", self.name, self.__grade)  #internal  Sheetal A
+
+s1 = Student("Sheetal", "A")
+print(s1.name)
+#print("s1", s1.__grade)     #AttributeError: 'Student' object has no attribute '__grade'
+
+
+#Inheritence
+print("inheritence started")
+class Car:
+    colour = "black"
+    wheel  = 4
+    def __init__(self, name, prize):
+        self.name = name
+        self.prize = prize
+    @staticmethod
+    def start():
+        print("car started: ")
+    @staticmethod
+    def stop():
+        print("car stopped")
+class ToyotaCar(Car):
+    def __init__(self, location):
+        self.location = location
+        print("location is ", self.location)
+
+class fortuner(ToyotaCar):
+    def __init__(self, type, location):
+        self.type = type
+        super().__init__(location)
+
+car1 = fortuner("petrol", "Pune")
+print(car1.colour)
+print(car1.location)
+print(car1.start())
+
+#Single Inheritence: 1 parent & 1 child class
+#Multi-level Inheritence: Parent1 to Child1 to Child2 to Child3 so Child3 will inherit all the attributes from Parent, Child1, Child2
+#Mulitple Inheritence: one child class can inherit from multiple parent class
+class A:
+    var1 = "welocme to A"
+class B:
+    var2 = "welcome to B"
+class C(A, B):
+    var3 = "welcome to C"
+
+c1 = C
+print(c1.var1)
+print(c1.var2)
+print(c1.var3)
+
+class A:
+    def show(self):
+        print("Class A")
+class B(A):
+    def show(self):
+        print("Class B")
+        super().show()  # Calls the next class in the MRO
+
+class C(B):
+    def show(self):
+        print("Class C")
+        super().show()  # Calls the next class in the MRO - Method Resolution Order
+
+obj = C()
+obj.show()

@@ -1,0 +1,96 @@
+#to remove file
+##deleting the file
+import os
+#os.remove("C:\\Users\\sr93628\\OneDrive - Deere & Co\\Desktop\\Python\\Demo1.txt")
+
+os.mkdir("C:\\Users\\sr93628\\OneDrive - Deere & Co\\Desktop\\Python\\Demo") ### to make a directory or folder
+
+
+
+foo = [4, 5, 8, 1, 3, -5]
+baz = [7, 6]
+# Expected foo: [4, 5, 8, 7, 6, 1, 3, -5]
+[foo.insert(i+3, baz[i]) for i in range(len(baz))]
+print(foo)
+
+sum = (8 - 5 * 6 // 2 + 3 ** 2)
+print(sum)
+
+alpha_list = []
+alpha_list = []
+alpha_list += map(chr, range(97, 123))
+print(alpha_list)
+#Which Python statements describe the unpacking of a tuple data structure?
+nums = (45, 78, 98)
+foo, baz, que = nums
+print(nums)
+print(foo)
+
+seq0 = [42, 78, 55, 39, 95]
+seq1 = [12, 18, 19, seq0[2:], 32]
+print(seq1)
+
+arr = [40, "fruits", False, True, "cats", 78, {2}]
+arr_i = []
+arr_l = []
+arr_s = []
+for i in arr:
+    if isinstance(i, int):
+        arr_i.append(i)
+    elif isinstance(i, bool):
+        arr_l.append(i)
+    elif isinstance(i, str):
+        arr_s.append(i)
+print([arr_i, arr_l, arr_s])
+
+# current output: [[40, False, True, 78], [], ['fruits', 'cats']]
+# expected output: [[40, 78], [False, True], ['fruits', 'cats']]
+# Replace isinstance(i, int) with type(i) == int.
+
+
+import random
+dice = random.randint(1, 6)
+print("u got ", dice)
+print("u got str ", str(dice))
+print(type(dice))
+
+import random
+list = ["rock", "paper", "scissor"]
+comp_choice = random.choice(list)
+#print("computer chose ", comp_choice)
+print(list)
+user_in = input("choose any from the list ")
+del list[1]
+print(list)
+list.append("paper")
+print(list)
+list.pop(0)
+print(list)
+
+str1 = "apnacollege"
+for letter in str1:
+    print(letter)
+else:
+    print("done")
+
+#movie booking 
+movie_show = {"hum": "11:00",
+              "tum": "12:00",
+              "wow": "01:00",
+              "not": "02:00"
+              }
+print("we are displaying \n")
+for movie in  movie_show:
+    print(movie)
+else:
+    print("not more movies")
+user_choice = input("which movie u r looking for ")
+for el in movie_show:
+    if el == user_choice:
+        print("the show time is ", movie_show[user_choice])
+        break
+    else:
+        print("looking for your choice")
+
+#else:
+#    print("sorry your choice movie is not running currently")

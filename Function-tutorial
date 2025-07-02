@@ -1,0 +1,95 @@
+# functions are used to avoid any redundant/repetitive code
+#function defination
+def cal_sum(a, b): #a, b is parameters
+    sum = a + b
+    print(sum)
+    return sum
+
+cal_sum(543, 104) #function called using arguments
+
+#function without parameters & return value
+def print_hello():
+    print("hello world")
+
+print_hello()
+
+
+#print the list elements in one line
+cities = ["delhi", "pune", "mumbai", "chennai", "noida"]
+
+def print_cities(citi):
+    for el in citi:
+        print(el, end= " ")
+
+print_cities(cities)
+print()
+
+#print the factorial of n
+#n = int(input("enter number "))
+def fact(a):
+    multi = 1
+    for i in range(1, a+1):
+        multi = multi * i
+        i = i + 1
+    print("factorial value ", multi )
+
+#fact(n)
+fact(8)
+
+#print odd/even for input number
+#n = int(input("enter any number "))
+
+def cal_fun(a):
+    if (a%2 == 0):
+        print("number", a, "even")
+    else:
+        print("number", a, "odd")
+
+cal_fun(5689)
+
+#recursive function: print 5,4,3,2,1
+### using for loop
+n = 5
+for el in range(n, 0, -1):
+    print(el, end = " ")
+print()
+
+### using while loop
+i = 5
+while i >= 1:
+    print(i, end = " ")
+    i = i - 1
+print()
+
+### using recursive function
+def rec_fun(n):
+    if (n == -1):
+        return     ###this will return no value but control
+    print(n)
+#    print(n, end = " ")
+    rec_fun(n-1)
+
+rec_fun(5)
+
+# factorial of n using recursive function
+def rec_fact(n):
+    if (n == 1 or n == 0):
+        return 1
+    else:
+        return rec_fact(n-1) * n
+print(rec_fact(5))
+
+#print the sum of n natural numbers
+def sum_func(a):
+    sum = 0
+    for el in range(1, a+1):
+        sum = sum + el
+    print("sum: ", sum)
+sum_func(10)
+
+def sum_rec(a):
+    if (a == 0):
+        return 0
+    return sum_rec(a-1) + a
+print(sum_rec(10))
+

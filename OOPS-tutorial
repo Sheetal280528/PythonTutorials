@@ -1,0 +1,110 @@
+# class & object
+
+class Student():
+    name = "Sheetal"
+    agg = 95
+s1 = Student()
+s2 = Student()
+print(s1)                 #<__main__.Student object at 0x0000020D649A6A50>
+print(Student())          #<__main__.Student object at 0x0000020D64CE8A50>
+print(s1.name, s1.agg)    #Sheetal 95
+print(s2.name, s2.agg)    #Sheetal 95
+
+#constructor: all classes have a function called __init__(), which is always executed when the object is being initiated
+#there will always be a constructor for us if programmer defines it or not
+#constructor is always defined with the parameter which is self, this self points to obejct.
+
+class Student():
+    def __init__(self): #having only one parameter is default constructor
+        print(self)     #<__main__.Student object at 0x000002001ECD8B90>
+        print("adding new students to the class..")
+student1 = Student()    #this parentheses is basically to execute constructor
+student2 = Student()
+#above statements have output printed as adding new students to the class..so whatever we have in __init__() that will be printed upon creating the object of the class
+
+class Student:
+    college_name = "apna college"                #class attributes which will be same for all objects in this class
+    def __init__ (self, fullname, marks):
+        self.name = fullname                     #instance or object attributes which will differ obejct to obejct
+        self.marks = marks
+
+s1 = Student("Ayansh", 56)
+print(s1.name)         #Ayansh
+print(s1.marks)        #56
+print(s1.college_name) #apna college
+s2 = Student("Nihit", 78)
+print(s2.name)         #Nihit
+print(Student.college_name)                 ##apna college
+
+#Method in the Class
+class Student:
+    def __init__(self, name, marks, subject):     #these many arguments should be passed while creating the object of this class
+        self.name = name
+        self.marks = marks
+        self.subject = subject
+    def get_marks(self, agg, school):             #while calling this method pass these many argumnets               
+        self.agg = agg
+        print("marks is displayed", agg)   
+        print("school name is ", school)  
+
+s1 = Student("Ayansh", 45, "English")
+print(s1.name, s1.marks)
+
+s2 = Student("Sheetal", 100, "Maths")
+print(s2.get_marks(80, "VNS"))
+
+
+#create a class to take name & marks of 3 subjects as argument in constructor, then print the avg using method
+class Student_Data:
+    def __init__(self, name, submarks):
+        self.name       = name
+        self.submarks   = submarks
+
+    def cal_avg(self):
+        sum = 0
+        for el in self.submarks:
+            sum = sum + el
+        print(self.name, "ur avg marks", sum/3)
+
+s1 = Student_Data("Tony", [67, 89, 56])
+print(s1.name, s1.submarks)         #Tony [67, 89, 56] 
+s1.cal_avg()                        #Tony ur avg marks 70.66666666666667
+
+#here it self you can change the value of argumnets 
+s1.submarks = [55, 55, 55]
+s1.cal_avg()                        #Tony ur avg marks 55.0
+
+#Static Method & Decorator
+
+class school:
+    def __init__(self, name, city):
+        self.name = name
+        self.city = city
+    @staticmethod                   #this is called decorator, static method is the method which doesn't have self parameter
+    def print_school():
+        print("welcome to school")
+school1 = school("VNS", "Pune")      
+print(school1.name, school1.city)   #VNS Pune
+school1.print_school()              # welcome to school
+
+#create a class Account with balance & account number, create method for debit & credit
+class Account:
+    def __init__(self, acc_num, bal):
+        self.acc_num = acc_num
+        self.bal     = bal
+    #debit method
+    def debit_fun(self, amount):
+        self.amount = amount
+        self.bal = self.bal - self.amount
+        print("from ur account", self.acc_num, "amount debited ", self.amount, "balance is ", self.bal)
+    
+    #credit method
+    def credit_fun(self, amount):
+        self.amount = amount
+        self.bal    = self.bal + self.amount
+        print("from ur account", self.acc_num, "amount credit ", self.amount, "balance is ", self.bal)    
+
+a1 = Account("a123", 5000)
+print(a1.acc_num, a1.bal)
+a1.debit_fun(1000)       #from ur account a123 amount debited  1000 balance is  4000
+a1.credit_fun(10000)     #from ur account a123 amount credit  10000 balance is  14000
